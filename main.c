@@ -18,14 +18,12 @@ void monty(args_t *args)
 
 	if (args->ac != 2)
 	{
-		/* dprintf(STDERR_FILENO, USAGE); */
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	data.fptr = fopen(args->av, "r");
 	if (!data.fptr)
 	{
-		/* dprintf(STDERR_FILENO, FILE_ERROR, args->av); */
 		fprintf(stderr, "Error: Can't open file %s\n", args->av);
 		exit(EXIT_FAILURE);
 	}
@@ -44,7 +42,6 @@ void monty(args_t *args)
 		code_func = get_func(data.words);
 		if (!code_func)
 		{
-			/* dprintf(STDERR_FILENO, UNKNOWN, args->line_number, data.words[0]); */
 			fprintf(stderr, "L%d: unknown instruction %s\n",
 				args->line_number, data.words[0]);
 			free_all(1);
